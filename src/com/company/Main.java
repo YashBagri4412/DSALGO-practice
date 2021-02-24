@@ -7,5 +7,13 @@ public class Main {
         //true
         System.out.println(BitmanipulationSolution.KthSetBit(8,2));
         //false
+        System.out.println(BitmanipulationSolution.countSetBit(5));
+        //2
+        System.out.println(BitmanipulationSolution.countSetBit(7));
+        //3
+        LookUpMethod test = new LookUpMethod();
+
+        test.initialize();
+        System.out.println(test.count(13));
     }
 }
