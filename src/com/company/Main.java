@@ -18,7 +18,7 @@ public class Main {
         int[] arr ={1,3,4};
         System.out.println(FindTheMissingNumber.find(arr));
         //2
-        int[] arr2 = {1,5,3,2};
+        /*int[] arr2 = {1,5,3,2};
         System.out.println(FindTheMissingNumber.find(arr2));
         //4
         int[] arr3 = {3,4,3,4,5,4,4,6,7,7};
@@ -26,7 +26,12 @@ public class Main {
         for (int i = 0; i < result.length; i++) {
             System.out.println(result[i]);
         }
-        PowerSet.powerSet("abc");
+        System.out.println(LookUpMethod.count(4));*///PowerSet.powerSet("abc");
+        /*int[] arr2 = {18,15,13,12,12,11};
+        System.out.println(AND.maxAND(arr2,6));*/
+        System.out.println(CountSetBits.countSetBits(4));
+
+
 
 
 
