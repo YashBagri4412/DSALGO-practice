@@ -56,4 +56,20 @@ public class RecursiveBasic {
             return true;
         return (s.charAt(0) == s.charAt(s.length()-1)) && palindromeString(s.substring(1,s.length()-1));
     }
+    public static int sumOfDigit(int n){
+        if(n==0)
+            return 0;
+        return n%10+sumOfDigit(n/10);
+    }
+
+    public static int ropeCutProblem(int n,int a,int b,int c){
+        if(n==0)
+            return 0;
+        if(n<0)
+            return -1;
+        int res = Math.max(ropeCutProblem(n-a,a,b,c),Math.max(ropeCutProblem(n-b,a,b,c),ropeCutProblem(n-c,a,b,c)));
+        if(res == -1)
+            return -1;
+        return res+1;
+    }
 }

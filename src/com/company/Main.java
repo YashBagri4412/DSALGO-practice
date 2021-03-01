@@ -40,10 +40,14 @@ public class Main {
         RecursiveBasic.tailRecursion(5,1);
         System.out.println("\n");
         System.out.println(RecursiveBasic.tailRecFact(3,1));*/
-        System.out.println(RecursiveBasic.fact(4));
+        /*System.out.println(RecursiveBasic.fact(4));
         System.out.println(RecursiveBasic.fib(4));
         System.out.println(RecursiveBasic.sumOfNaturalNumber(3));
-        System.out.println(RecursiveBasic.palindromeString("geeks"));
+        System.out.println(RecursiveBasic.palindromeString("geeks"));*/
+        /*System.out.println(RecursiveBasic.sumOfDigit(9987));
+        System.out.println(RecursiveBasic.ropeCutProblem(9,2,2,2));*/
+        System.out.println(GameOfCricket.game(6));
+
 
 
 
