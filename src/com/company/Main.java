@@ -15,8 +15,8 @@ public class Main {
 
         test.initialize();
         System.out.println(test.count(13));*/
-        int[] arr ={1,3,4};
-        System.out.println(FindTheMissingNumber.find(arr));
+        /*int[] arr ={1,3,4};
+        System.out.println(FindTheMissingNumber.find(arr));*/
         //2
         /*int[] arr2 = {1,5,3,2};
         System.out.println(FindTheMissingNumber.find(arr2));
@@ -29,8 +29,21 @@ public class Main {
         System.out.println(LookUpMethod.count(4));*///PowerSet.powerSet("abc");
         /*int[] arr2 = {18,15,13,12,12,11};
         System.out.println(AND.maxAND(arr2,6));*/
-        System.out.println(CountSetBits.countSetBits(4));
-
+        //System.out.println(CountSetBits.countSetBits(4));
+        //DecimalToBinary.printDToB(7);
+        //System.out.println("111");
+        //System.out.println(GameOfCricket.game(2));
+        /*RecursiveBasic.printNto1(5);
+        System.out.println("\n");
+        RecursiveBasic.print1ToN(5);
+        System.out.println("\n");
+        RecursiveBasic.tailRecursion(5,1);
+        System.out.println("\n");
+        System.out.println(RecursiveBasic.tailRecFact(3,1));*/
+        System.out.println(RecursiveBasic.fact(4));
+        System.out.println(RecursiveBasic.fib(4));
+        System.out.println(RecursiveBasic.sumOfNaturalNumber(3));
+        System.out.println(RecursiveBasic.palindromeString("geeks"));
 
 
 
