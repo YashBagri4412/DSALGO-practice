@@ -196,6 +196,277 @@ public class FixedSizeArray {
        }
        return maxSum;
    }
+    public static void frequencyInSortedArray(int[] arr){
+        int currentValue = arr[0];
+        int frequency = 1;
+        for (int i = 1; i < arr.length ; i++) {
+            if(arr[i]!=currentValue){
+                System.out.println(currentValue+":"+frequency);
+                frequency = 1;
+                currentValue = arr[i];
+            }else{
+                frequency++;
+            }
+        }
+        System.out.println(currentValue+":"+frequency);
+    }
 
+    public static int maxProfit(int[] price,int start,int end){
+        if(end <= start)
+            return 0;
+
+        int profit = 0;
+
+        for(int i = start; i < end; i++)
+        {
+            for(int j = i + 1; j <= end; j++)
+            {
+                if(price[j] > price[i])
+                {
+                    int curr_profit = price[j] - price[i]
+                            + maxProfit(price, start, i - 1)
+                            + maxProfit(price, j + 1, end);
+
+                    profit = Math.max(profit, curr_profit);
+                }
+            }
+        }
+
+        return profit;
+    }
+
+    public static int buyAndSellStocks(int[] arr){
+        int profit = 0;
+        for(int i=1;i<arr.length;i++){
+            if(arr[i]>arr[i-1]){
+                profit+=arr[i]-arr[i-1];
+            }
+        }
+        return profit;
+    }
+
+
+    public static int trappingRainWater(int[] arr){
+        /*int res = 0;
+        for(int i=1;i<arr.length-1;i++){
+            int lmax = arr[i];
+            for (int j = 0;j<i;j++){
+                lmax=Math.max(lmax,arr[j]);
+            }
+            int rmax = arr[i];
+            for (int j = i+1;j<arr.length;j++){
+                rmax=Math.max(rmax,arr[j]);
+            }
+            res += (Math.min(lmax,rmax)) - arr[i];
+        }
+        return res;*/
+
+        //O(n) approach
+        int[] rightMax = new int[arr.length];
+        int[] leftMax = new int[arr.length];
+        int res = 0;
+        leftMax[0] = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            leftMax[i] = Math.max(arr[i],leftMax[i-1]);
+        }
+        rightMax[rightMax.length-1] = arr[arr.length-1];
+        for (int i = arr.length-2; i >=0 ; i--) {
+            rightMax[i] = Math.max(arr[i],rightMax[i+1]);
+        }
+        for (int i = 0; i < arr.length; i++) {
+            res += (Math.min(rightMax[i],leftMax[i])-arr[i]);
+        }
+        return res;
+    }
+
+    public static int countNoOfOnes(int[] arr){
+        int noOfOnes = 0;
+        int maxNoOfOnes = 0;
+        for(int i=0;i< arr.length;i++){
+            if(arr[i] == 1){
+                noOfOnes++;
+            }else{
+                maxNoOfOnes = Math.max(noOfOnes,maxNoOfOnes);
+                noOfOnes = 0;
+            }
+
+        }
+        return Math.max(noOfOnes,maxNoOfOnes);
+    }
+
+    public static int maxSubArrSum(int[] arr){
+
+//        int max = Integer.MIN_VALUE;
+//        for(int i=0;i<arr.length;i++){
+//            int cur = 0;
+//            for(int j = i ;j<arr.length;j++){
+//                cur += arr[j];
+//                max = Math.max(cur,max);
+//            }
+//        }
+//        return max;
+
+        /*int max = arr[0];
+        int result = Integer.MIN_VALUE;
+        for(int i = 1;i<arr.length;i++){
+            if(arr[i]>max){
+                max = arr[i];
+            }else{
+                max+=arr[i];
+
+            }
+            result = Math.max(result,max);
+        }
+        return result;*/
+        int maxEnding = arr[0];
+        int res = arr[0];
+        for (int i = 1; i < arr.length ; i++) {
+            maxEnding = Math.max(maxEnding+arr[i],arr[i]);
+            res = Math.max(res,maxEnding);
+        }
+        return res;
+    }
+
+    static public int maxLengthEvenOdd(int[] arr){
+        int count = 1;
+        int res = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if(arr[i]%2==0&&arr[i-1]%2!=0 || arr[i]%2!=0&&arr[i-1]%2==0){
+                count++;
+                res = Math.max(res,count);
+            }else{
+                count =1;
+            }
+
+        }
+        return count;
+    }
+
+
+    public static int maxCircularSubarraySum(int[] arr){
+        int maxEnding = arr[0];
+        int res = arr[0];
+        int count = 0;
+        int i = 1;
+        while(count != 2){
+
+            maxEnding = Math.max(maxEnding + arr[i],arr[i]);
+            System.out.println(maxEnding);
+            res = Math.max(maxEnding,res);
+
+            System.out.println(res);
+            if(i == arr.length-1){
+                count++;
+                i=0;
+                continue;
+            }
+            i++;
+        }
+        return res;
+    }
+
+
+    public static int majorityElement(int[] arr){
+        int count = 1;
+        int res = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if(arr[res]==arr[i]){
+                count++;
+            }else{
+                count --;
+            }
+
+            if(count == 0){
+                res = i;
+                count = 1;
+            }
+        }
+        count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[res]==arr[i]){
+                count++;
+            }
+            if(count>(arr.length/2)){
+                return res;
+            }
+        }
+        return -1;
+    }
+
+    public static int slidingWindowTechnique(int[] arr,int k){
+        /*int res = 0,maxValue = Integer.MIN_VALUE;
+
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if(count == k-1){
+                res+=arr[i];
+                maxValue = Math.max(res,maxValue);
+                res=0;
+                count=0;
+            }
+            res+=arr[i];
+            count++;
+
+
+        }
+        return maxValue;*/
+
+        int curSum = 0;
+        int res = Integer.MIN_VALUE;
+        for (int i = 0; i < k; i++) {
+            curSum+=arr[i];
+        }
+        for (int i = k; i < arr.length ; i++) {
+            curSum = curSum + arr[i] - arr[i-k];
+            res = Math.max(curSum,res);
+        }
+        return res;
+    }
+
+    static public boolean subArraySum(int[] arr,int sum){
+        int curSum = arr[0];
+        int start = 0;
+        for(int end = 1;end<arr.length;end++){
+            while(curSum > sum && start<end-1){
+                curSum -= arr[start];
+                start++;
+            }
+            if(curSum == sum)
+                return true;
+            if(end<arr.length){
+                curSum+=arr[end];
+            }
+        }
+        return curSum==sum;
+    }
+
+    static public int circularSumSubarray(int[] arr){
+        int res = arr[0];
+        for(int i=0;i<arr.length;i++){
+            int cur_sum = arr[i];
+            int cur_max = arr[i];
+            for(int j = 1;j<arr.length;j++){
+                int index = (i+j)%arr.length;
+                cur_sum += arr[index];
+                cur_max = Math.max(cur_max,cur_sum);
+            }
+            res = Math.max(res,cur_max);
+        }
+        return res;
+    }
+
+    static public void minNoOfSlips(int[] arr){
+        for (int i = 1; i < arr.length; i++) {
+            if(arr[i]!=arr[i-1]) {
+                if (arr[i] != arr[0])
+                    System.out.print("From " + i + " to ");
+                else
+                    System.out.println(i - 1);
+            }
+        }
+        if(arr[arr.length-1]!= arr[0]){
+            System.out.println(arr.length-1);
+        }
+    }
 
 }

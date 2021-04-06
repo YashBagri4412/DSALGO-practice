@@ -1,5 +1,6 @@
 package com.company;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Main {
@@ -104,7 +105,63 @@ public class Main {
             System.out.println(arr3[i]);
         }*/
         //FixedSizeArray.leaderInArray(arr4);
-        int[] arrp = {2,3,10,6,4,8,1};
+        /*int[] arrp = {2,3,10,6,4,8,1};
         System.out.println(FixedSizeArray.maxDifference(arrp));
+        int[] arrMax = {10,20,30};
+        FixedSizeArray.frequencyInSortedArray(arrMax);*/
+        /*int[] arrp = {1,5,3,8,12};
+        System.out.println(FixedSizeArray.maxProfit(arrp,0,arrp.length-1));
+        System.out.println(FixedSizeArray.buyAndSellStocks(arrp));*/
+        /*int[] arrp = {3,0,1,2,5};
+        System.out.println(FixedSizeArray.trappingRainWater(arrp));*/
+        /*int[] arrp = {1,1,1,1,0};
+        System.out.println(FixedSizeArray.countNoOfOnes(arrp));*/
+        /*int[] arrp = {-6,-1,-8};
+        System.out.println(FixedSizeArray.maxSubArrSum(arrp));*/
+        /*int[] arrp = {10,12,8,4};
+        System.out.println(FixedSizeArray.maxLengthEvenOdd(arrp));*/
+//        int[] arrp = {1,8,30,-5,20,7};
+        /*System.out.println(FixedSizeArray.maxCircularSubarraySum(arrp));*/
+        //System.out.println(FixedSizeArray.majorityElement(arrp));
+        //System.out.println(FixedSizeArray.slidingWindowTechnique(arrp,3));
+        /*int[] arrp = {1,4,20,3,10,5};
+        System.out.println(FixedSizeArray.subArraySum(arrp,33));*/
+        /*int[] arr = {3,-4,5,6,-8,7};
+        System.out.println(FixedSizeArray.circularSumSubarray(arr));*/
+        /*int[] arr ={1,1,0,0,0,1,1,0,0,0};
+        FixedSizeArray.minNoOfSlips(arr);*/
+        /*int[] arr = {2,2};
+        System.out.println(FixedSizeArray.secondLargestElement(arr));*/
+       /* ArrayList<Integer> arr = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> obj = new ArrayList<ArrayList<Integer>>();
+
+        arr.add(10);
+        arr.add(20);
+        obj.add(arr);
+        System.out.println(obj.toString());*/
+        /*int[] arr = {10,20,30,40,50,60,60};
+        System.out.println(Searching.binarySearchRecursive(arr,20,0,arr.length-1));*/
+        //int[] arr = {10,20,30,40,50,60,60,60};
+        //int[] arr = {10,10,10,10,10,20,20,30,40,50,60};
+        /*System.out.println(Searching.ocurenceOfSmallestIndex(arr,60));
+        System.out.println(Searching.occurenceOfLargestIndex(arr,10));
+        System.out.println(Searching.countOfOcc(arr,20));*/
+        //int[] arrb = {0,0,0};
+        //System.out.println(Searching.noOf1(arrb));
+        //System.out.println(Searching.sqaureRoot(9));
+        /*int[] arr = {10,20,30,40,50,8,9};
+        System.out.println(Searching.searchInRotatedAndSorted(arr,30));
+        System.out.println(Searching.getPeak(arr));*/
+        //int[] arr = {2,5,8,12,30};
+        //System.out.println(Searching.getUnsortedSum(arr,8).toString());
+       /* int[] arr = {3,8,13,18};
+        System.out.println(Searching.getSortedSum(arr,14).toString());
+        System.out.println(Searching.isPair(arr,0,arr.length-1,14));*/
+        /*int[] arr = {2,3,4,8,9,20,40};
+        System.out.println(Searching.isTriplet(arr,2));*/
+        int[] a1 = {10,20,30,40,50};
+        int[] a2 = {5,15,25,35,45};
+        System.out.println(Searching.getMedian(a1,a2));
     }
+
 }
