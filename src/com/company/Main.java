@@ -159,9 +159,17 @@ public class Main {
         System.out.println(Searching.isPair(arr,0,arr.length-1,14));*/
         /*int[] arr = {2,3,4,8,9,20,40};
         System.out.println(Searching.isTriplet(arr,2));*/
-        int[] a1 = {10,20,30,40,50};
+        /*int[] a1 = {10,20,30,40,50};
         int[] a2 = {5,15,25,35,45};
-        System.out.println(Searching.getMedian(a1,a2));
+        System.out.println(Searching.getMedian(a1,a2));*/
+        /*int[] a = {1,2,3,2,2};
+        System.out.println(Searching.duplicateElement(a));
+        int b;
+        b=b=20;*/
+        /*int[] arr = {10,20,10,30};
+        System.out.println(Searching.minPages(arr,2));*/
+        int[] arr = {1,1,1,0,0,0};
+        System.out.println(Searching.lastOcc(arr));
     }
 
 }

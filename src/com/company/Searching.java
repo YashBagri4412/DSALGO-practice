@@ -238,4 +238,69 @@ public class Searching {
         }
         return 0;
     }
+
+    static public int duplicateElement(int[] arr){
+        boolean[] validate = new boolean[arr.length-1];
+        for(int i=0;i<arr.length;i++){
+            if(validate[arr[i]]==true){
+                return arr[i];
+            }
+            validate[arr[i]] = true;
+        }
+        return -1;
+    }
+
+    static public boolean isFeasible(int[] arr,int k,int ans){
+        int res = 1,sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if ((sum + arr[i]) > ans) {
+                res++;
+                sum = arr[i];
+            } else {
+                sum += arr[i];
+            }
+        }
+        return res==k;
+    }
+
+    static public int minPages(int[] arr,int k){
+        int max = 0;
+        int sum = 0;
+        for(int i = 0;i<arr.length;i++){
+            sum += arr[i];
+            max = Math.max(max,arr[i]);
+        }
+        int low = max;
+        int high = sum;
+        int res = 0;
+        while(low<=high){
+            int mid = (low+high)/2;
+            if(isFeasible(arr,k,mid)){
+                res = mid;
+                high = mid - 1;
+
+            }else{
+                low = mid + 1;
+            }
+        }
+        return res;
+    }
+
+
+    public static int lastOcc(int[] arr){
+        int low = 0 , high = arr.length-1;
+        while(low<=high){
+            int mid = (low+high)/2;
+            if(arr[mid]==1){
+                if(arr[mid]!=arr[mid+1]){
+                    return mid;
+                }else{
+                    low = mid + 1;
+                }
+            }else if(arr[mid]==0){
+                high = mid - 1;
+            }
+        }
+        return -1;
+    }
 }
