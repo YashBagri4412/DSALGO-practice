@@ -2,6 +2,8 @@ package com.company;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Main {
 
@@ -75,9 +77,9 @@ public class Main {
 //            System.out.println(arr2[i]);
 //        }
 //        System.out.println(FixedSizeArray.findLargestElement(arr1));
-        int[] arr2 = {7,10,4,10,6,5,2};
+        /*int[] arr2 = {7,10,4,10,6,5,2};
         int[] arr3 = {10,20,30};
-        int[] arr4 = {30,20,10};
+        int[] arr4 = {30,20,10};*/
         /*System.out.println(FixedSizeArray.secondLargestElement(arr2));
         System.out.println(FixedSizeArray.secondLargestElement(arr3));
         System.out.println(FixedSizeArray.secondLargestElement(arr4));*/
@@ -168,8 +170,30 @@ public class Main {
         b=b=20;*/
         /*int[] arr = {10,20,10,30};
         System.out.println(Searching.minPages(arr,2));*/
-        int[] arr = {1,1,1,0,0,0};
-        System.out.println(Searching.lastOcc(arr));
+        /*int[] arr = {1,1,1,0,0,0};
+        System.out.println(Searching.lastOcc(arr));*/
+//        Point[] temp = {new Point(10,20),new Point(8,9)};
+//        Arrays.sort(temp);
+//        for(int i=0;i<temp.length;i++){
+//            System.out.println("x: " + temp[i].x + " y: " + temp[i].y);
+//        }
+        /*Integer[] arr = {5,10,20,7,8,9};
+        Arrays.sort(arr,new MyCmp());
+        System.out.println(Arrays.toString(arr));*/
+
+        ArrayList<Point> list = new ArrayList<>();
+        list.add(new Point(10,20));
+        list.add(new Point(40,20));
+        list.add(new Point(3,10));
+        for(Point p:list){
+            System.out.println(p.x + " " + p.y);
+        }
+        Collections.sort(list,new MyCmp());
+        for (Point p:list) {
+            System.out.println(p.x + " " + p.y);
+        }
+
+
     }
 
 }
