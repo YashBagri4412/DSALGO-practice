@@ -199,9 +199,12 @@ public class Main {
         System.out.println(Arrays.toString(arr));*/
         /*Sorting.selectionSort(arr);
         System.out.println(Arrays.toString(arr));*/
-        int[] a = {10,15,20};
+        /*int[] a = {10,15,20};
         int[] b = {5,6,6,15};
-        System.out.println(Arrays.toString(Sorting.mergeTwoSortedArray(a,b)));
+        Sorting.mergeTwoSortedArray(a,b);*/
+        int[] a = {10,20,30,11,23};
+        Sorting.mergeSort(a,0,a.length-1);
+        System.out.println(Arrays.toString(a));
     }
 
 }
