@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Spliterator;
 
 public class Main {
 
@@ -180,8 +181,7 @@ public class Main {
         /*Integer[] arr = {5,10,20,7,8,9};
         Arrays.sort(arr,new MyCmp());
         System.out.println(Arrays.toString(arr));*/
-
-        ArrayList<Point> list = new ArrayList<>();
+        /*ArrayList<Point> list = new ArrayList<>();
         list.add(new Point(10,20));
         list.add(new Point(40,20));
         list.add(new Point(3,10));
@@ -191,9 +191,17 @@ public class Main {
         Collections.sort(list,new MyCmp());
         for (Point p:list) {
             System.out.println(p.x + " " + p.y);
-        }
-
-
+        }*/
+        int[] arr = {100,90,70,80,40,70,60,50};
+        /*Sorting.bubbleSort(arr);
+        System.out.println(Arrays.toString(arr));*/
+        /*Sorting.selectionSort(arr);
+        System.out.println(Arrays.toString(arr));*/
+        /*Sorting.selectionSort(arr);
+        System.out.println(Arrays.toString(arr));*/
+        int[] a = {10,15,20};
+        int[] b = {5,6,6,15};
+        System.out.println(Arrays.toString(Sorting.mergeTwoSortedArray(a,b)));
     }
 
 }
