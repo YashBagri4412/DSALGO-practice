@@ -192,7 +192,7 @@ public class Main {
         for (Point p:list) {
             System.out.println(p.x + " " + p.y);
         }*/
-        int[] arr = {100,90,70,80,40,70,60,50};
+        /*int[] arr = {100,90,70,80,40,70,60,50};*/
         /*Sorting.bubbleSort(arr);
         System.out.println(Arrays.toString(arr));*/
         /*Sorting.selectionSort(arr);
@@ -202,9 +202,18 @@ public class Main {
         /*int[] a = {10,15,20};
         int[] b = {5,6,6,15};
         Sorting.mergeTwoSortedArray(a,b);*/
-        int[] a = {10,20,30,11,23};
+        /*int[] a = {10,20,30,11,23};
         Sorting.mergeSort(a,0,a.length-1);
-        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(a));*/
+        /*int[] a = {1,1,3,3,3};
+        int[] b = {1,1,1,1,3,5,7};
+        System.out.println(Sorting.intersectionOfTwoArray(a,b));
+        System.out.println(Sorting.unionOfTwoArray(a,b));*/
+        int[] arr = {4,2,1,3,5};
+        System.out.println(Sorting.countInv(arr,0,arr.length-1));
+        Sorting.naivePartition(arr,0,arr.length-1,2);
+        System.out.println(Arrays.toString(arr));
+
     }
 
 }

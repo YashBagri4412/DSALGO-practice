@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Sorting {
@@ -91,26 +92,7 @@ public class Sorting {
         }
     }
 
-    /*static void merge(int arr[], int l, int m, int h){
 
-        int n1=m-l+1, n2=h-m;
-        int[] left=new int[n1];int[]right=new int[n2];
-        for(int i=0;i<n1;i++)
-            left[i]=arr[i+l];
-        for(int j=0;j<n2;j++)
-            right[j]=arr[m+1+j];
-        int i=0,j=0,k=l;
-        while(i<n1 && j<n2){
-            if(left[i]<=right[j])
-                arr[k++]=left[i++];
-            else
-                arr[k++]=right[j++];
-        }
-        while(i<n1)
-            arr[k++]=left[i++];
-        while(j<n2)
-            arr[k++]=right[j++];
-    }*/
 
     static void merge(int[] arr,int low,int mid,int high){
         int[] left = new int[mid-low+1];
@@ -139,4 +121,122 @@ public class Sorting {
             arr[count++]=right[j++];
         }
     }
+
+    public static ArrayList<Integer> intersectionOfTwoArray(int[] a,int[] b){
+        ArrayList<Integer> res = new ArrayList<>();
+        int i=0,j=0;
+        while(i<a.length && j<b.length){
+            if(i>0 && a[i]==a[i-1]){
+                i++;
+                continue;
+            }
+            if(j>0 && b[j]==b[j-1]){
+                j++;
+                continue;
+            }
+            if(a[i]<b[j]){
+                i++;
+            }else if(a[i]>b[j]){
+                j++;
+            }else{
+                res.add(a[i]);
+                i++;j++;
+            }
+        }
+        return res;
+    }
+
+    public static ArrayList<Integer> unionOfTwoArray(int[] a,int[] b){
+        ArrayList<Integer> res = new ArrayList<>();
+        int i = 0, j = 0;
+        while(i<a.length && j<b.length){
+            if(i>0 && a[i]==a[i-1]){
+                i++;
+                continue;
+            }
+            if(j>0 && b[j-1]==b[j]){
+                j++;
+                continue;
+            }
+            if(a[i]<b[j]){
+                res.add(a[i]);
+                i++;
+            }else if(a[i]>b[j]){
+                res.add(b[j]);
+                j++;
+            }else{
+                res.add(a[i]);
+                i++;
+                j++;
+            }
+        }
+        while(i<a.length){
+            res.add(a[i]);i++;
+        }
+        while(j<b.length){
+            res.add(b[j]);j++;
+        }
+        return res;
+    }
+
+    public static int countInv(int[] arr,int low,int high){
+        int res = 0;
+        if(low<high){
+            int mid = (low+high)/2;
+            res += countInv(arr,low,mid);
+            res += countInv(arr,mid+1,high);
+            res += countAndMerge(arr,low,mid,high);
+        }
+        return res;
+    }
+
+    public static int countAndMerge(int[] arr,int low,int mid,int high){
+        int[] left = new int[mid-low+1];
+        int[] right = new int[high - mid];
+
+        for(int i = 0 ;i<left.length;i++){
+            left[i] = arr[low+i];
+        }
+
+        for(int j=0;j<right.length;j++){
+            right[j] = arr[mid+1+j];
+        }
+
+        int res = 0,i = 0,j = 0,k = low;
+        while(i<left.length && j<right.length){
+            if(right[j]>=left[i]){
+                arr[k++] = left[i++];
+            }else{
+                res += (left.length - i);
+                arr[k++] = right[j++];
+            }
+        }
+        while(i<left.length){
+            arr[k++]=left[i++];
+        }
+        while(j<right.length){
+            arr[k++] = right[j++];
+        }
+        return res;
+    }
+
+    public static void naivePartition(int[] arr,int low,int high,int partition){
+        int[] temp = new int[high-low+1];
+        int index = 0;
+        for(int i=low;i<=high;i++){
+            if(arr[i]<=arr[partition]){
+                temp[index++]=arr[i];
+            }
+        }
+        for(int i=low;i<=high;i++){
+            if(arr[i]>arr[partition]){
+                temp[index++]=arr[i];
+            }
+        }
+        for(int i=low;i<=high;i++){
+            arr[i] = temp[i-low];
+        }
+
+    }
+
 }
